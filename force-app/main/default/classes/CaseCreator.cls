@@ -6,7 +6,7 @@ public with sharing class CaseCreator
         newCase.Subject = 'Hi there';
         newCase.Status = 'New';
 
-        //Inserting cases attempt 2
+        //Inserting cases attempt 3
         insert newCase;
     }
 }

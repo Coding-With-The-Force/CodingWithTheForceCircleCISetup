@@ -6,7 +6,7 @@ echo "Installing Salesforce CLI"
 sudo npm install -global sfdx-cli
 
 echo "Initializing node"
-echo -e '\n\n\n\n\n\n\n\n' | sudo npm init
+echo -e '\n' | sudo npm init
 
 echo "Installing PMD"
 sudo npm install pmd-bin

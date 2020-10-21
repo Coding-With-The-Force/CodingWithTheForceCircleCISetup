@@ -1,3 +1,3 @@
 echo "Installing PMD"
-npm install
+npm install node-jre
 npm install pmd-bin

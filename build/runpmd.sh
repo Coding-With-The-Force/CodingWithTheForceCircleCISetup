@@ -2,7 +2,7 @@
 
 echo "Running PMD"
 echo $PWD
-npx pmd -d ./project/force-app/main/default -f html -R ./project/build/apexrules.xml -r ./project/scanner_results/results.html
+npx pmd -d . -f text -R $RULESET -r analysis.txt
 
 #echo "Installing JDK"
 #sudo apt-get install openjdk-8-jdk

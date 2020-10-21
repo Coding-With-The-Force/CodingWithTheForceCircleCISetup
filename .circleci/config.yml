@@ -16,6 +16,14 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - run:
+          name: Create Scratch Org
+          command: . build/create-scratch-org.sh
+      - run:
+          name: Validate Components & Run Tests
+          command: . build/test.sh
+      - store_test_results:
+          path: test-results
   code-review:
     docker:
       - image: circleci/node:latest
@@ -35,6 +43,8 @@ jobs:
       - run:
           name: Scan /src folder with PMD
           command: . build/runpmd.sh
+      - store_artifacts:
+          path: analysis.txt
   deploy-prod:
     docker:
       - image: circleci/node:latest

@@ -1,5 +1,5 @@
 #Install dependencies, SFDX CLI in this case
-sudo apt-get install openjdk-8-jdk
+#sudo apt-get install openjdk-8-jdk
 
 echo "Installing Dependencies... "
 sudo npm install -global sfdx-cli

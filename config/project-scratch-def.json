@@ -3,9 +3,6 @@
   "edition": "Enterprise",
   "features": [
     "Communities",
-    "B2BCommerce",
-    "PersonAccounts",
-    "FieldService",
     "Knowledge",
     "ServiceCloud",
     "Entitlements",

@@ -1,6 +1,6 @@
 #This script is used to run the sfdx scanner plugin.
 echo "Running PMD"
-pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
+node_modules/pmd-bin/dist/pmd-bin/bin/run.sh pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
 #echo "Installing JDK"
 #sudo apt-get install openjdk-8-jdk
 

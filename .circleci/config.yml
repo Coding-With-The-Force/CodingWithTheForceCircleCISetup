@@ -37,7 +37,7 @@ jobs:
           name: Scan /src folder with PMD
           command: . build/runpmd.sh
       - store_artifacts:
-          path: analysis.txt
+          path: analysis.csv
   deploy-prod:
     docker:
       - image: circleci/node:latest

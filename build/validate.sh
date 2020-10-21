@@ -1,4 +1,4 @@
-#Create a scratch org
+#Create a scratch org 2
 echo "Creating the Scratch Org..."
 sfdx force:org:create -f config/project-scratch-def.json -a ${CIRCLE_BRANCH} -s
 #Push the code to your new scratch org & run all tests

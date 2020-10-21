@@ -1,7 +1,7 @@
 #This script is used to run the sfdx scanner plugin.
 
 echo "Installing PMD"
-npm install pmd-bin
+sudo npm install -global pmd-bin
 
 echo "Running PMD"
 pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html

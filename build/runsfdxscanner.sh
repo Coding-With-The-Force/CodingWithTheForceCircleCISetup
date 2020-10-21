@@ -4,7 +4,7 @@ echo "Installing PMD"
 sudo npm install pmd-bin
 
 echo "Running PMD"
-sudo pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
+pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
 #echo "Installing JDK"
 #sudo apt-get install openjdk-8-jdk
 

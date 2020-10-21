@@ -39,5 +39,9 @@
     "**/{aura|lwc}/**": [
       "eslint"
     ]
+  },
+  "dependencies": {
+    "jest": "^26.5.0",
+    "pmd-bin": "^1.11.0"
   }
 }

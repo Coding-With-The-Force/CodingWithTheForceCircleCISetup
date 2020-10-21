@@ -33,3 +33,7 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+
+# cert files
+build/server.crt
+build/encodedkey.txt

@@ -1,7 +1,7 @@
 echo "Generating certificates for use with CircleCI, press enter to continue"
 read check1
-openssl genrsa -des3 -passout pass:[put a real password here] -out server.pass.key 2048
-openssl rsa -passin pass:[put a real password here] -in server.pass.key -out server.key
+openssl genrsa -des3 -passout pass:MommaJune -out server.pass.key 2048
+openssl rsa -passin pass:MommaJune -in server.pass.key -out server.key
 rm server.pass.key
 echo "We will now generate the server key, when promoted for a password, press enter"
 echo "press enter to continue"
@@ -13,7 +13,8 @@ echo "the key will now be encoded in BASE64 and displayed, use the output for th
 echo "/n"
 echo "press enter to continue"
 read check4
-certutil -encode server.key encodedkey.txt
+#certutil -encode server.key encodedkey.txt
+base64 server.key
 echo "we will now clean up, keys will be deleted"
 echo "press enter to continue"
 read check4

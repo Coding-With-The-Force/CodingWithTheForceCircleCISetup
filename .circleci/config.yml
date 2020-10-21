@@ -3,7 +3,6 @@ jobs:
   code-review:
     docker:
       - image: circleci/node:latest
-      - image: circleci/openjdk:latest
     steps:
       - checkout
       - run:

@@ -5,9 +5,17 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
       - run:
           name: Install Dependencies
           command: . build/install.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run:
           name: Create Scratch Org
           command: . build/create-scratch-org.sh
@@ -21,6 +29,10 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
       - run:
           name: Install PMD
           command: . build/installpmd.sh
@@ -50,6 +62,8 @@ workflows:
   validate:
     jobs:
       - code-review:
+          requires:
+            - run-tests
           filters:
             branches:
               ignore:

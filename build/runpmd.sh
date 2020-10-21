@@ -1,11 +1,9 @@
 #This script is used to run the sfdx scanner plugin.
-echo "Installing JDK"
-sudo apt-get install openjdk-8-jdk
-
 echo "Running PMD"
 chmod -R 777 node_modules
-node_modules/pmd-bin/dist/pmd-bin/bin/run.sh pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
-
+pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
+#echo "Installing JDK"
+#sudo apt-get install openjdk-8-jdk
 
 #echo "Installing sfdx scanner"
 #Piping in the value y and a new line when prompted for a digital signature installing this plugin

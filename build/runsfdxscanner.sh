@@ -2,8 +2,8 @@
 
 #echo "Running PMD"
 #pmd -d ./force-app/main/default -f html -R ./build/apexrules.xml -r ./scanner_results/results.html
-echo "Installing JDK"
-sudo apt-get install openjdk-8-jdk
+#echo "Installing JDK"
+#sudo apt-get install openjdk-8-jdk
 
 echo "Installing sfdx scanner"
 #Piping in the value y and a new line when prompted for a digital signature installing this plugin

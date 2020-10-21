@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  code-review:
     docker:
       - image: circleci/node:latest
     steps:
@@ -9,6 +9,9 @@ jobs:
           name: Install Dependencies
           command: . build/install.sh
       - run:
+          name: Run Scanner
+          command: . build/runsfdxscanner.sh
+      - run:
           name: Create Scratch Org
           command: . build/create-scratch-org.sh
       - run:
@@ -16,14 +19,7 @@ jobs:
           command: . build/test.sh
       - store_test_results:
           path: test-results
-  run-scanner:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - run:
-          name: Run Scanner
-          command: . build/runsfdxscanner.sh
+
   deploy-prod:
     docker:
       - image: circleci/node:latest
@@ -42,12 +38,7 @@ workflows:
   version: 2
   validate:
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore:
-                - master
-      - run-scanner:
+      - code-review:
           filters:
             branches:
               ignore:

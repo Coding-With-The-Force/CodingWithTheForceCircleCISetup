@@ -1,2 +1,2 @@
 echo "Installing PMD"
-sudo npm install pmd-bin
+npm install pmd-bin

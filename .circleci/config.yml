@@ -22,8 +22,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Scanner
-          command: . build/runsfdxscanner.sh
+          name: Install PMD
+          command: . build/installpmd.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Scan /src folder with PMD
+          command: . build/runpmd.sh
   deploy-prod:
     docker:
       - image: circleci/node:latest

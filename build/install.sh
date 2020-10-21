@@ -5,6 +5,9 @@ sudo apt-get install openjdk-8-jdk
 echo "Installing Salesforce CLI"
 sudo npm install -global sfdx-cli
 
+echo "Initializing node"
+sudo npm init
+
 echo "Installing PMD"
 sudo npm install pmd-bin
 

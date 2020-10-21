@@ -2,7 +2,7 @@
 
 echo "Running PMD"
 echo $PWD
-npx pmd -d . -f text -R $RULESET -r analysis.txt
+npx pmd -d . -f csv -R $RULESET -r analysis.csv
 
 #echo "Installing JDK"
 #sudo apt-get install openjdk-8-jdk

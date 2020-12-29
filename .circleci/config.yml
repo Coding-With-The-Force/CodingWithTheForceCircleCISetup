@@ -63,13 +63,7 @@ workflows:
   version: 2
   validate:
     jobs:
-      - code-review:
-          filters:
-            branches:
-              ignore:
-                - master
+      - code-review
       - deploy-prod:
-          filters:
-            branches:
-              only:
-                - master
+          require:
+            - code-review

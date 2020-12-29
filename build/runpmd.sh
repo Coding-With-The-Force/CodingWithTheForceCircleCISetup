@@ -3,6 +3,7 @@
 #echo "Running PMD"
 #echo $PWD
 #npx pmd -d . -f csv -R $RULESET -r analysis.csv
+set -e
 
 echo "Installing JDK"
 sudo apt-get install openjdk-8-jdk

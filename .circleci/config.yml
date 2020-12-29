@@ -4,18 +4,23 @@ jobs:
     docker:
       - image: circleci/node:latest
     steps:
-      - run:
-          name: Install Dependencies
-          command: . build/install.sh
-  run-tests:
-    docker:
-      - image: circleci/node:latest
-    steps:
       - checkout
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "package.json" }}
             - dependency-cache-
+      - run:
+          name: Install Dependencies
+          command: . build/install.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  run-tests:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
       - run:
           name: Create Scratch Org
           command: . build/create-scratch-org.sh
@@ -24,28 +29,16 @@ jobs:
           command: . build/test.sh
       - store_test_results:
           path: test-results
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
   code-review:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
       - run:
           name: Scan /src folder with PMD
           command: . build/runpmd.sh
       - store_artifacts:
           path: analysis.csv
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
   deploy-prod:
     docker:
       - image: circleci/node:latest

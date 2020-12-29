@@ -4,8 +4,8 @@
 #echo $PWD
 #npx pmd -d . -f csv -R $RULESET -r analysis.csv
 
-#echo "Installing JDK"
-#sudo apt-get install openjdk-8-jdk
+echo "Installing JDK"
+sudo apt-get install openjdk-8-jdk
 
 echo "Installing sfdx scanner"
 echo -e 'y\n' | sfdx plugins:install @salesforce/sfdx-scanner

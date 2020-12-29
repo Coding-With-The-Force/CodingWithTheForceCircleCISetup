@@ -12,4 +12,4 @@ echo "Installing sfdx scanner"
 echo -e 'y\n' | sfdx plugins:install @salesforce/sfdx-scanner
 
 echo "Running sfdx scanner"
-npx sfdx scanner:run --target "**/default/**" --format "csv" --outfile "analysis.csv" 
+npx sfdx scanner:run --target "**/default/**" --format "csv" --outfile "analysis.csv" --violations-cause-error

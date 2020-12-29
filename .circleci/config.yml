@@ -1,10 +1,9 @@
 version: 2.1
 jobs:
-  run-tests:
+  install-dependencies:
     docker:
       - image: circleci/node:latest
     steps:
-      - checkout
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "package.json" }}
@@ -16,6 +15,12 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+
+  run-tests:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
       - run:
           name: Create Scratch Org
           command: . build/create-scratch-org.sh
@@ -39,6 +44,7 @@ jobs:
           command: . build/runpmd.sh
       - store_artifacts:
           path: analysis.csv
+
   deploy-prod:
     docker:
       - image: circleci/node:latest
@@ -57,7 +63,9 @@ workflows:
   version: 2
   validate:
     jobs:
+      - install-dependencies
       - code-review:
+          requires: install-dependencies
           filters:
             branches:
               ignore:

@@ -8,4 +8,4 @@
 #sudo apt-get install openjdk-8-jdk
 
 echo "Running sfdx scanner"
-sfdx scanner:run --target "**/default/**" --format "csv" --outfile "analysis.csv" 
+npx sfdx scanner:run --target "**/default/**" --format "csv" --outfile "analysis.csv" 

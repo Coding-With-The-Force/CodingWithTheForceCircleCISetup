@@ -65,13 +65,6 @@ workflows:
   validate:
     jobs:
       - code-review:
-          requires:
-            - run-tests
-          filters:
-            branches:
-              ignore:
-                - master
-      - run-tests:
           filters:
             branches:
               ignore:

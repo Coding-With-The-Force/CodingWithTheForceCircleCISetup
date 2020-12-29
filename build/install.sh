@@ -4,6 +4,7 @@
 
 echo "Installing Salesforce CLI"
 sudo npm install -global sfdx-cli
+echo -e 'y\n' | sudo npm install -global sfdx plugins:install @salesforce/sfdx-scanner
 
 #echo "Installing PMD"
 #sudo npm install -global pmd-bin

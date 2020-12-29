@@ -65,7 +65,8 @@ workflows:
     jobs:
       - install-dependencies
       - code-review:
-          requires: install-dependencies
+          requires: 
+	          - install-dependencies
           filters:
             branches:
               ignore:

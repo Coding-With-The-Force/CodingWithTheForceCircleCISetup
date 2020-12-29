@@ -35,13 +35,6 @@ jobs:
             - dependency-cache-{{ checksum "package.json" }}
             - dependency-cache-
       - run:
-          name: Install PMD
-          command: . build/installpmd.sh
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run:
           name: Scan /src folder with PMD
           command: . build/runpmd.sh
       - store_artifacts:
